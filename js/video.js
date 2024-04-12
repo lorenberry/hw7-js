@@ -51,10 +51,18 @@ document.querySelector("#skip").addEventListener("click", function() {
 document.querySelector("#mute").addEventListener("click", function() {
 	if (video.muted){
 		video.muted = false;
+		document.querySelector("#mute").innerHTML = "Mute";
 		console.log("Unmuted");
 	}
 	else{
 		video.muted = true;
+		document.querySelector("#mute").innerHTML = "Unmute";
 		console.log("Muted");
 	}
+});
+
+document.querySelector("#slider").addEventListener("input", function() {
+	console.log(this.value);
+	video.volume = this.value / 100;
+	document.querySelector("#volume").innerHTML = video.volume * 100 + "%";
 });
